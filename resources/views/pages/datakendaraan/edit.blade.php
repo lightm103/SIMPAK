@@ -1,0 +1,82 @@
+@extends('layout.main')
+
+@section('content')
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header">
+                <a href="{{ route('dataperangkat.index') }}" class="btn btn-secondary mx-3">
+                    <i class="ti ti-arrow-left me-2"></i> Back
+                </a>
+                <strong class="fs-5"> Edit Data Perangkat Elektronik</strong>
+            </div>
+            <div class="card-body">
+                <form action="{{ route('datakendaraan.update', $dataKendaraan->id) }}" method="POST" id="tambahdata"
+                    enctype="multipart/form-data">
+                    @csrf
+                    @method('PUT')
+                    <div class="row">
+                        <div class="mb-3">
+                            <label for="nomorPlat" class="form-label">Nomor Plat Kendaraan Dinas</label>
+                            <input type="text" value="{{ $dataKendaraan->plat_nomer }}" class="form-control"
+                                name="plat_nomer" id="nomorPlat" placeholder="Masukkan Nomor Plat Kendaraan Dinas">
+                        </div>
+                        <div class="mb-3">
+                            <label for="namaPengguna" class="form-label">Nama Pengguna</label>
+                            <input type="text" value="{{ $dataKendaraan->nama_pengguna }}" class="form-control"
+                                name="nama_pengguna" id="namaPengguna" placeholder="Masukkan Nama Pengguna">
+                        </div>
+                        <div class="mb-3">
+                            <label for="alamatPengguna" class="form-label">Alamat Pengguna</label>
+                            <textarea class="form-control" name="alamat_pengguna" id="alamatPengguna" rows="3"
+                                placeholder="Masukkan Alamat Pengguna">{{ $dataKendaraan->plat_nomer }}</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fotoKendaraanDinas" class="form-label">Ganti Foto Kendaraan Dinas</label>
+                            <input type="file" class="form-control" name="foto_kendaraan" id="fotoKendaraanDinas"
+                                aria-describedby="fotoKendaraanDinasHelp">
+                            <div class="mb-3 text-center">
+                                <img src="{{ url('storage/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                    alt="" style="width: 500px; height: 500px; object-fit: cover;" srcset="">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="fotoPengguna" class="form-label">Ganti Foto Pengguna</label>
+                            <input type="file" class="form-control" name="foto_pengguna" id="fotoPengguna"
+                                aria-describedby="fotoPenggunaHelp">
+                            <div class="mb-3 text-center">
+                                <img src="{{ url('storage/fotopengguna/' . $dataKendaraan->foto_pengguna) }}" alt=""
+                                    style="width: 500px; height: 500px; object-fit: cover;" srcset="">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="nomorTelepon" class="form-label">Nomor Telepon Pengguna</label>
+                            <input type="text" value="{{ $dataKendaraan->notelpon_pengguna }}" class="form-control"
+                                name="notelpon_pengguna" id="nomorTelepon" placeholder="Masukkan Nomor Telepon Pengguna">
+                        </div>
+                        <div class="mb-3">
+                            <label for="merekKendaraan" class="form-label">Merek Kendaraan</label>
+                            <input type="text" value="{{ $dataKendaraan->merek_kendaraan }}" class="form-control"
+                                name="merek_kendaraan" id="merekKendaraan" placeholder="Masukkan Merek Kendaraan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="jenisKendaraan" class="form-label">Jenis Kendaraan</label>
+                            <input type="text" value="{{ $dataKendaraan->jenis_kendaraan }}" class="form-control"
+                                name="jenis_kendaraan" id="jenisKendaraan" placeholder="Masukkan Jenis Kendaraan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="tahunPerolehan" class="form-label">Tahun Perolehan</label>
+                            <input type="text" value="{{ $dataKendaraan->tahun_perolehan }}" class="form-control"
+                                name="tahun_perolehan" id="tahunPerolehan"
+                                placeholder="Masukkan Tahun Perolehan Kendaraan">
+                        </div>
+                        <div class="mb-3">
+                            <label for="jabatanPengguna" class="form-label">Jabatan Pengguna</label>
+                            <input type="text" value="{{ $dataKendaraan->jabatan_pengguna }}" class="form-control"
+                                name="jabatan_pengguna" id="jabatanPengguna" placeholder="Masukkan Jabatan Pengguna">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+@endsection
