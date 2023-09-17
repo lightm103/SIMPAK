@@ -3,24 +3,29 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\DataKendaraan;
 use App\Models\DataPerangkat;
-use App\Models\User;
 
 class SearchController extends Controller
 {
 
-    public function index(){
+    public function index()
+    {
         return view('welcome');
     }
 
-    public function search(Request $request){
+    public function search(Request $request)
+    {
+        $query = $request->get('keyword');
+        $searchType = $request->get('searchType');  // Perhatikan ini harus sesuai dengan yang dikirim dari AJAX
 
-        $query = $request->get('query');
-        $filterResult = DataPerangkat::where('nama_perangkat', 'LIKE', '%'. $query. '%')->get();
-        $dataModified = array();
-        foreach ($filterResult as $item){
-            $dataModified[] = $item->nama_perangkat;
+        $results = [];
+        if ($searchType === 'datakendaraans') {
+            $results = DataKendaraan::where('plat_nomer', 'like', "%$query%")->get();
+        } elseif ($searchType === 'dataperangkats') {
+            $results = DataPerangkat::where('nama_perangkat', 'like', "%$query%")->get();
         }
-        return response()->json($dataModified);
+
+        return response()->json($results);
     }
 }

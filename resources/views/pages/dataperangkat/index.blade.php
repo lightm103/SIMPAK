@@ -16,7 +16,7 @@
                             <thead>
                                 <tr>
                                     <th>No.</th>
-                                    <th>Plat Nomer</th>
+                                    <th>Nama Perangkat Elektronik</th>
                                     <th>Nama Pengguna</th>
                                     <th>Action</th>
                                 </tr>

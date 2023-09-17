@@ -1,10 +1,12 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SearchController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataKendaraanController;
 use App\Http\Controllers\DataPerangkatController;
-use App\Http\Controllers\SearchController;
+use App\Http\Controllers\PajakController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,9 +19,11 @@ use App\Http\Controllers\SearchController;
 |
 */
 
-Route::get('/', [SearchController::class, 'index']);
-
-Route::get('/search', [SearchController::class, 'search'])->name('search');
+Route::get('/', [HomeController::class, 'index']);
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::resource('/datakendaraan', DataKendaraanController::class);
 Route::resource('/dataperangkat', DataPerangkatController::class);
+Route::get('pages/datakendaraan/show/{id}', 'DataKendaraanController@show')->name('pages.datakendaraan.show');
+Route::get('/search', 'SearchController@search');
+Route::get('/searchData', [HomeController::class, 'searchData'])->name('searchData');
+Route::resource('/pajak', PajakController::class);
