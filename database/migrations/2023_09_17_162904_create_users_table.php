@@ -11,23 +11,23 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pajaks', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('nama_pemilik');
-            $table->string('plat_nomer');
-            $table->string('email_pemilik');
-            $table->date('tanggal_berakhir_pajak');
-            $table->text('alamat_pemilik');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->string('role')->default('user'); // Tambahkan baris ini
+            $table->rememberToken();
             $table->timestamps();
         });
     }
-    
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
-        Schema::dropIfExists('pajaks');
+        Schema::dropIfExists('users');
     }
 };
