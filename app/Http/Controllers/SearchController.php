@@ -17,15 +17,16 @@ class SearchController extends Controller
     public function search(Request $request)
     {
         $query = $request->get('keyword');
-        $searchType = $request->get('searchType');  // Perhatikan ini harus sesuai dengan yang dikirim dari AJAX
-
+        $searchType = $request->get('searchType');
+    
         $results = [];
         if ($searchType === 'datakendaraans') {
             $results = DataKendaraan::where('plat_nomer', 'like', "%$query%")->get();
         } elseif ($searchType === 'dataperangkats') {
             $results = DataPerangkat::where('nama_perangkat', 'like', "%$query%")->get();
         }
-
-        return response()->json($results);
+        
+        return view('search.result', ['results' => $results, 'searchType' => $searchType]);
     }
+    
 }

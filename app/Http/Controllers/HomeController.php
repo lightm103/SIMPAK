@@ -9,32 +9,35 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $dataPerangkats = DataPerangkat::all();
-        $dataKendaraans = DataKendaraan::all();
-
-        return view('welcome', compact('dataPerangkats', 'dataKendaraans'));
+      return view('welcome');
     }
-
-    public function searchData(Request $request)
-    {
-        $keyword = $request->input('keyword');
-        $searchType = $request->input('search_type');
-
+    
+    public function searchData(Request $request){
+        $searchType = $request->get('search_type'); // default search type
+        // dd($searchType);
+        $keyword = $request->get('keyword');
+        
+        $results = [];
+        $dataKendaraans = [];
+        $dataPerangkats = [];
         if ($searchType === 'datakendaraans') {
-            $item = DataKendaraan::where('plat_nomer', 'LIKE', "%$keyword%")->first();
-            if ($item) {
-                return redirect()->route('datakendaraan.show', $item->id);
-            }
-        } else {
-            $item = DataPerangkat::where('nama_perangkat', 'LIKE', "%$keyword%")->first();
-            if ($item) {
-                return redirect()->route('dataperangkat.show', $item->id);
-            }
-        }
-
-        return back()->with('error', 'Data tidak ditemukan');
+            $results = DataKendaraan::where('plat_nomer', 'LIKE', '%'.$keyword.'%')->get();
+            // dd($results);
+               $dataKendaraans = $results;
+            } elseif ($searchType === 'dataperangkats') {
+                $results = DataPerangkat::where('nama_perangkat', 'LIKE', '%'.$keyword.'%')->get();
+                // dd($results);
+               $dataPerangkats = $results;
+           } else {
+               $results = [];
+               $dataKendaraans = [];
+               $dataPerangkats = [];
+           }
+           // dd($dataKendaraan);
+           
+           return view('search.result', compact('results', 'searchType', 'dataKendaraans', 'dataPerangkats'));
     }
 
     public function showLoginForm()

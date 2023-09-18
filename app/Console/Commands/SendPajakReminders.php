@@ -35,9 +35,10 @@ class SendPajakReminders extends Command
     $pajaks = Pajak::whereBetween('tanggal_berakhir_pajak', [$today, $nextMonth])->get();
 
     foreach ($pajaks as $pajak) {
+        $tanggalBerakhirPajak = Carbon::parse($pajak->tanggal_berakhir_pajak); // Mengubah string menjadi objek Carbon
         Mail::to($pajak->email_pemilik)->send(new PajakReminder([
             'nama_pemilik' => $pajak->nama_pemilik,
-            'tanggal_berakhir_pajak' => $pajak->tanggal_berakhir_pajak->format('d-m-Y')
+            'tanggal_berakhir_pajak' => $tanggalBerakhirPajak->format('d-m-Y')
         ]));
     }
 }

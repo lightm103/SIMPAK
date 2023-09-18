@@ -16,7 +16,7 @@ class PajakController extends Controller
     public function store(Request $request)
     {
         Pajak::create($request->all());
-        return redirect()->route('pajak.index');
+        return redirect()->route('admin.pajak.index');
     }
 
     public function edit($id)
