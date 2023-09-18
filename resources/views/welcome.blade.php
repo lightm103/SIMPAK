@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Topic Listing Bootstrap 5 Template</title>
+    <title>SIMPAK</title>
     <link href="{{ asset('tema/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('tema/css/bootstrap-icons.css') }}" rel="stylesheet">
     <link href="{{ asset('tema/css/templatemo-topic-listing.css') }}" rel="stylesheet">
@@ -17,7 +17,7 @@
 <body id="top">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Platform Pantau</a>
+        <a class="navbar-brand" href="#">SIMPAK</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
