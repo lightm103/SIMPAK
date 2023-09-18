@@ -30,15 +30,15 @@
                                         <td>
                                             <div class="action-btn d-flex align-items-center justify-content-center">
                                                 <a class="text-light btn btn-primary mx-1"
-                                                    href="{{ route('dataperangkat.edit', $item->id)}}">
+                                                    href="{{ route('admin.dataperangkat.edit', $item->id)}}">
                                                     <i class="ti ti-edit fs-5">Edit</i>
                                                 </a>
                                                 <a class="text-light btn btn-secondary mx-1"
-                                                    href="{{ route('dataperangkat.show', $item->id)}}">
+                                                    href="{{ route('admin.dataperangkat.show', $item->id)}}">
                                                     <i class="ti ti-eye fs-5">Show</i>
                                                 </a>
                                                 <form class=""
-                                                    action="{{ route('dataperangkat.destroy', $item->id)}}" method="post">
+                                                    action="{{ route('admin.dataperangkat.destroy', $item->id)}}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger btn-icon mx-1" type="submit"

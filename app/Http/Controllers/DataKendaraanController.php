@@ -135,6 +135,6 @@ class DataKendaraanController extends Controller
     {
         $dataKendaraan = DataKendaraan::where('id' ,$id);
         $dataKendaraan->delete();
-        return redirect()->route('datakendaraan.index')->with('success', 'Data kendaraan berhasil dihapus');
+        return redirect()->route('admin.datakendaraan.index')->with('success', 'Data kendaraan berhasil dihapus');
     }
 }

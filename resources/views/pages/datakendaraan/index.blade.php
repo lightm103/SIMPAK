@@ -32,15 +32,15 @@
                                         <td>
                                             <div class="action-btn d-flex align-items-center justify-content-center">
                                                 <a class="text-light btn btn-primary mx-1"
-                                                    href="{{ route('datakendaraan.edit', $item->id) }}">
+                                                    href="{{ route('admin.datakendaraan.edit', $item->id) }}">
                                                     <i class="ti ti-edit fs-5">Edit</i>
                                                 </a>
                                                 <a class="text-light btn btn-secondary mx-1"
-                                                    href="{{ route('datakendaraan.show', $item->id) }}">
+                                                    href="{{ route('admin.datakendaraan.show', $item->id) }}">
                                                     <i class="ti ti-eye fs-5">Show</i>
                                                 </a>
                                                 <form class=""
-                                                    action="{{ route('datakendaraan.destroy', $item->id) }}" method="post">
+                                                    action="{{ route('admin.datakendaraan.destroy', $item->id) }}" method="post">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button class="btn btn-danger btn-icon mx-1" type="submit"
@@ -68,7 +68,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('datakendaraan.store') }}" method="POST" id="tambahbarang"
+                    <form action="{{ route('admin.datakendaraan.store') }}" method="POST" id="tambahbarang"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="row">

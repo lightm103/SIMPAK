@@ -13,7 +13,7 @@
       <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
           <ul id="sidebarnav">
               <li class="sidebar-item">
-                  <a class="sidebar-link" href="{{ route('dashboard') }}" aria-expanded="false">
+                  <a class="sidebar-link" href="{{ route('admin.dashboard') }}" aria-expanded="false">
                       <span>
                           <i class="ti ti-layout-dashboard"></i>
                       </span>
@@ -33,7 +33,7 @@
                   </a>
                   <ul aria-expanded="false" class="collapse first-level">
                       <li class="sidebar-item">
-                          <a href="{{ route('datakendaraan.index')}}" class="sidebar-link">
+                          <a href="{{ route('admin.datakendaraan.index')}}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                   <i class="ti ti-circle"></i>
                               </div>
@@ -41,7 +41,7 @@
                           </a>
                       </li>
                       <li class="sidebar-item">
-                          <a href="{{ route('dataperangkat.index')}}" class="sidebar-link">
+                          <a href="{{ route('admin.dataperangkat.index')}}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                   <i class="ti ti-circle"></i>
                               </div>
@@ -50,7 +50,7 @@
                       </li>
                       <!-- Menambahkan menu Data Pajak -->
                       <li class="sidebar-item">
-                          <a href="{{ route('pajak.index')}}" class="sidebar-link">
+                          <a href="{{ route('admin.pajak.index')}}" class="sidebar-link">
                               <div class="round-16 d-flex align-items-center justify-content-center">
                                   <i class="ti ti-circle"></i>
                               </div>

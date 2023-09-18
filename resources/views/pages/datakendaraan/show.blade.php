@@ -4,7 +4,7 @@
 <div class="container-fluid">
     <div class="card">
         <div class="card-header">
-            <a href="{{ route('datakendaraan.index') }}" class="btn btn-secondary mx-3">
+            <a href="{{ route('admin.datakendaraan.index') }}" class="btn btn-secondary mx-3">
                 <i class="ti ti-arrow-left me-2"></i> Back
             </a>
             <strong class="fs-5"> Informasi Kendaraan Dinas</strong>

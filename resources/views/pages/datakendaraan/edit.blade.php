@@ -4,13 +4,13 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <a href="{{ route('dataperangkat.index') }}" class="btn btn-secondary mx-3">
+                <a href="{{ route('admin.datakendaraan.index') }}" class="btn btn-secondary mx-3">
                     <i class="ti ti-arrow-left me-2"></i> Back
                 </a>
                 <strong class="fs-5"> Edit Data Perangkat Elektronik</strong>
             </div>
             <div class="card-body">
-                <form action="{{ route('datakendaraan.update', $dataKendaraan->id) }}" method="POST" id="tambahdata"
+                <form action="{{ route('admin.datakendaraan.update', $dataKendaraan->id) }}" method="POST" id="tambahdata"
                     enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
@@ -75,6 +75,10 @@
                                 name="jabatan_pengguna" id="jabatanPengguna" placeholder="Masukkan Jabatan Pengguna">
                         </div>
                     </div>
+                    
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Update Data</button>
+                </div>
                 </form>
             </div>
         </div>

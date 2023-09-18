@@ -45,20 +45,16 @@ class HomeController extends Controller
     // Melakukan proses login
     public function login(Request $request)
     {
-        // Validasi input
         $request->validate([
             'email' => 'required|email',
             'password' => 'required',
         ]);
 
-        // Autentikasi user
         if (Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            // Jika user adalah admin, redirect ke dashboard admin
-            if (Auth::user()->is_admin) {
+            if (Auth::user()->role === 'admin') {  // Diubah dari is_admin ke role
                 return redirect()->route('admin.dashboard');
             }
 
-            // Jika bukan admin, logout dan redirect kembali ke form login
             Auth::logout();
             return back()->withErrors([
                 'email' => 'Only admin can login from this page.',

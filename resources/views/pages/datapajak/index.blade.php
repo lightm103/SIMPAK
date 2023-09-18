@@ -36,10 +36,10 @@
                                         <td>
                                             <div class="action-btn d-flex align-items-center justify-content-center">
                                                 <a class="text-light btn btn-primary mx-1"
-                                                    href="{{ route('pajak.edit', $item->id) }}">
+                                                    href="{{ route('admin.pajak.edit', $item->id) }}">
                                                     <i class="ti ti-edit fs-5">Edit</i>
                                                 </a>
-                                                <form class="" action="{{ route('pajak.destroy', $item->id) }}"
+                                                <form class="" action="{{ route('admin.pajak.destroy', $item->id) }}"
                                                     method="post">
                                                     @csrf
                                                     @method('DELETE')
@@ -70,7 +70,7 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('pajak.store') }}" method="POST" id="tambahDataPajak"
+                    <form action="{{ route('admin.pajak.store') }}" method="POST" id="tambahDataPajak"
                         enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
