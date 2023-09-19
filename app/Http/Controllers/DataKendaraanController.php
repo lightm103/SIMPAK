@@ -78,7 +78,7 @@ class DataKendaraanController extends Controller
             'jabatan_pengguna' => $data['jabatan_pengguna'],
         ]);
 
-        return redirect()->route('datakendaraan.index')->with('success', 'Data kendaraan berhasil disimpan');
+        return redirect()->route('admin.datakendaraan.index')->with('success', 'Data kendaraan berhasil disimpan');
     }
 
     /**

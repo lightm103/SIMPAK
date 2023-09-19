@@ -76,7 +76,7 @@ class DataPerangkatController extends Controller
             'jabatan_pengguna' => $data['jabatan_pengguna'],
         ]);
 
-        return redirect()->route('dataperangkat.index')->with('success', 'Data perangkat berhasil disimpan');
+        return redirect()->route('admin.dataperangkat.index')->with('success', 'Data perangkat berhasil disimpan');
     }
 
     /**
