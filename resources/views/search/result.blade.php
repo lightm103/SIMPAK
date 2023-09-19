@@ -16,7 +16,7 @@
                 <div class="card">
                     <div class="card-header bg-primary text-white">
                         <a href="{{ url('/') }}" class="btn btn-light mx-3">
-                            <i class="fa fa-arrow-left me-2"></i> Back to Welcome Page
+                            <i class="fa fa-arrow-left me-2"></i> Back to Home
                         </a>
                         <strong> Informasi Perangkat Elektronik</strong>
                     </div>
