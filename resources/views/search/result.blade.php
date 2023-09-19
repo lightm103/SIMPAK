@@ -28,6 +28,8 @@
                         <p>Alamat Pengguna: {{ $dataPerangkat->alamat_pengguna }}</p>
                         <p>Merek Perangkat: {{ $dataPerangkat->merek_perangkat }}</p>
                         <p>Tahun Perolehan: {{ $dataPerangkat->tahun_perolehan }}</p>
+                        <p>Foto Pengguna: {{ $dataPerangkat->foto_pengguna }}</p>
+                        <p>Foto Perangkat : {{ $dataPerangkat->foto_perangkat }}</p>
                         <hr>
                         @endforeach
                     </div>
@@ -48,6 +50,8 @@
                         <p>Alamat Pengguna: {{ $dataKendaraan->alamat_pengguna }}</p>
                         <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                         <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
+                        <p>Foto Pengguna: {{ $dataKendaraan->foto_pengguna }}</p>
+                        <p>Foto Kendaraan: {{ $dataKendaraan->foto_kendaraan }}</p>
                         <hr>
                         @endforeach
                     </div>
