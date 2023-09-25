@@ -30,11 +30,11 @@
                             <p>Alamat Pengguna: {{ $dataPerangkat->alamat_pengguna }}</p>
                             <p>Merek Perangkat: {{ $dataPerangkat->merek_perangkat }}</p>
                             <p>Tahun Perolehan: {{ $dataPerangkat->tahun_perolehan }}</p>
-                            <p>Foto Pengguna: <img src="{{ url('storage/fotopengguna/' . $dataPerangkat->foto_pengguna) }}"
+                            <p>Foto Pengguna: <img src="{{ url('storage/public/fotopengguna/' . $dataPerangkat->foto_pengguna) }}"
                                 alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                 srcset=""></p>
                             <p>Foto Perangkat : <img
-                                    src="{{ url('storage/fotoperangkat/' . $dataPerangkat->foto_perangkat) }}"
+                                    src="{{ url('storage/public/fotoperangkat/' . $dataPerangkat->foto_perangkat) }}"
                                     alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                     srcset=""></p>
                             <hr>
@@ -58,11 +58,11 @@
                             <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                             <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img
-                                    src="{{ url('storage/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                    src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
                                     alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                     srcset=""></p>
                             <p>Foto Kendaraan: <img
-                                    src="{{ url('storage/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
+                                    src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
                                     alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                     srcset=""></p>
                             <hr>
