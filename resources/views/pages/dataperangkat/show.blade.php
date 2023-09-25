@@ -74,7 +74,7 @@
                     <div class="mb-3">
                         <label for="fotoPengguna" class="form-label">Foto Pengguna</label>
                         <div class="mb-3">
-                            <img src="{{ url('storage/fotopengguna/' . $dataPerangkat->foto_pengguna) }}"
+                            <img src="{{ url('storage/public/fotopengguna/' . $dataPerangkat->foto_pengguna) }}"
                                 alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                 srcset="">
                         </div>
