@@ -11,10 +11,18 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'name' => 'admin',
-            'email' => 'admin@gmail.com',
-            'password' => bcrypt('password123'),  // menggunakan bcrypt untuk menghash password
-            'role' => 'admin',
+            [
+                'name' => 'admin',
+                'email' => 'admin@gmail.com',
+                'password' => bcrypt('password123'),  // menggunakan bcrypt untuk menghash password
+                'role' => 'admin',
+            ],
+            [
+                'name' => 'adminpajak',
+                'email' => 'adminpajak@gmail.com',
+                'password' => bcrypt('@setda2023'),
+                'role' => 'admin',  // sesuaikan role jika perlu
+            ]
         ]);
     }
 }
