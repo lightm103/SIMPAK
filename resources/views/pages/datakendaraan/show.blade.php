@@ -40,7 +40,7 @@
                         <label for="fotoKendaraanDinas" class="form-label">Foto Kendaraan
                             Dinas</label>
                         <div class="mb-3">
-                            <img src="{{ url('storage/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                            <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
                                 alt="" style="width: 200px; height: 200px; object-fit: cover;"
                                 srcset="">
                         </div>
