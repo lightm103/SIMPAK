@@ -38,7 +38,8 @@ class SendPajakReminders extends Command
         $tanggalBerakhirPajak = Carbon::parse($pajak->tanggal_berakhir_pajak); // Mengubah string menjadi objek Carbon
         Mail::to($pajak->email_pemilik)->send(new PajakReminder([
             'nama_pemilik' => $pajak->nama_pemilik,
-            'tanggal_berakhir_pajak' => $tanggalBerakhirPajak->format('d-m-Y')
+            'tanggal_berakhir_pajak' => $tanggalBerakhirPajak->format('d-m-Y'),
+            'plat_nomer' => $pajak->plat_nomer,
         ]));
     }
 }

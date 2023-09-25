@@ -19,7 +19,7 @@ class UsersTableSeeder extends Seeder
             ],
             [
                 'name' => 'adminpajak',
-                'email' => 'adminpajak@gmail.com',
+                'email' => 'simpak.setdakh@gmail.com',
                 'password' => bcrypt('@setda2023'),
                 'role' => 'admin',  // sesuaikan role jika perlu
             ]

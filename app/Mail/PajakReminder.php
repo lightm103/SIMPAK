@@ -13,6 +13,7 @@ class PajakReminder extends Mailable
 
     public $nama_pemilik;
     public $tanggal_berakhir_pajak;
+    public $plat_nomer;
 
     /**
      * Create a new message instance.
@@ -24,6 +25,7 @@ class PajakReminder extends Mailable
     {
         $this->nama_pemilik = $data['nama_pemilik'];
         $this->tanggal_berakhir_pajak = $data['tanggal_berakhir_pajak'];
+        $this->plat_nomer = $data['plat_nomer'];
     }
 
     /**
@@ -37,6 +39,7 @@ class PajakReminder extends Mailable
                     ->view('emails.pajakReminder', [
                         'nama_pemilik' => $this->nama_pemilik,
                         'tanggal_berakhir_pajak' => $this->tanggal_berakhir_pajak,
+                        'plat_nomer' => $this->plat_nomer,
                     ]);
     }
 }
