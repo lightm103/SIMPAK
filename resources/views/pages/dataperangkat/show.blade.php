@@ -7,7 +7,7 @@
             <a href="{{ route('admin.dataperangkat.index') }}" class="btn btn-secondary mx-3">
                 <i class="ti ti-arrow-left me-2"></i> Back
             </a>
-            <strong class="fs-5"> Informasi Kendaraan Dinas</strong>
+            <strong class="fs-5"> Informasi Perangkat Elektronik</strong>
         </div>
         <div class="card-body">
             <div class="row">
