@@ -12,8 +12,8 @@
                         <div class="row">
                             <div class="card">
                                 <div class="card-body">
-                                    <h4 class="card-title">Total Data</h4>
-                                    <p class="card-text">{{$count}}</p>
+                                    <h4 class="card-title">Total Data Kendaraan Dinas & Perangkat Elektronik</h4>
+                                    <h1 class="card-text">{{$total}}</h1>
                                 </div>
                             </div>
                         </div>

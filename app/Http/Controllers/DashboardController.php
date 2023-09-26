@@ -11,9 +11,10 @@ class DashboardController extends Controller
     public function index()
     {
 
-        $count = DataPerangkat::all()->count();
-        $count = DataKendaraan::all()->count();
+        $countPerangkat = DataPerangkat::all()->count();
+        $countKendaraan = DataKendaraan::all()->count();
+        $total = $countPerangkat + $countKendaraan;
 
-        return view('pages.dashboard.index', compact('count'));
+        return view('pages.dashboard.index', compact('total'));
     }
 }
