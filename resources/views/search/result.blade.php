@@ -58,11 +58,9 @@
                             <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                             <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
-                                alt="" style="width: 200px; height: 200px; object-fit: cover;"
-                                srcset=""></p>
+                                alt="" ></p>
                             <p>Foto Kendaraan: <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
-                                alt="" style="width: 200px; height: 200px; object-fit: cover;"
-                                srcset=""></p>
+                                alt="" ></p>
                             <hr>
                         @endforeach
                     </div>
