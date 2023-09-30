@@ -57,14 +57,12 @@
                             <p>Alamat Pengguna: {{ $dataKendaraan->alamat_pengguna }}</p>
                             <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                             <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
-                            <p>Foto Pengguna: <img
-                                    src="{{ asset('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
-                                    alt="" style=""
-                                    srcset=""></p>
-                            <p>Foto Kendaraan: <img
-                                    src="{{ asset('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
-                                    alt="" style=""
-                                    srcset=""></p>
+                            <p>Foto Pengguna: <img src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
+                                alt="" style="width: 200px; height: 200px; object-fit: cover;"
+                                srcset=""></p>
+                            <p>Foto Kendaraan: <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                alt="" style="width: 200px; height: 200px; object-fit: cover;"
+                                srcset=""></p>
                             <hr>
                         @endforeach
                     </div>
