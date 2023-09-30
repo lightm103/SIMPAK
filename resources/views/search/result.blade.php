@@ -58,11 +58,11 @@
                             <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                             <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img
-                                    src="{{ asset('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                    src="{{ asset('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
                                     alt="" style=""
                                     srcset=""></p>
                             <p>Foto Kendaraan: <img
-                                    src="{{ asset('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna)}}"
+                                    src="{{ asset('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
                                     alt="" style=""
                                     srcset=""></p>
                             <hr>
