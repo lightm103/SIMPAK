@@ -33,10 +33,11 @@
     <main>
         <!-- Bagian Hero -->
         <section class="hero-section bg-primary text-white text-center py-5" id="section_1">
+            <br>
+            <br>
             <a class="navbar-brand" href="#">
                 <img src="{{ asset('assets/images/logos/khhebat.png') }}" style="width: 20%" alt="Logo">    
             </a>
-            <br>
             <div class="container">
                 <h1>SIMPAK</h1>
                 <h3>Sistem Pengamanan Aset Bergerak</h3>
