@@ -17,7 +17,7 @@
 <body id="top">
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">SIMPAK</a>
+        
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -33,9 +33,14 @@
     <main>
         <!-- Bagian Hero -->
         <section class="hero-section bg-primary text-white text-center py-5" id="section_1">
+            <a class="navbar-brand" href="#">
+                <img src="{{ asset('assets/images/logos/khhebat.png') }}" style="width: 20%" alt="Logo">    
+            </a>
+            <br>
             <div class="container">
-                <h1>Pantau</h1>
-                <h6>Platform Untuk Mengecek</h6>
+                <h1>SIMPAK</h1>
+                <h3>Sistem Pengamanan Aset Bergerak</h3>
+                <h3>Sekretariat Daerah Kabupaten Kapuas Hulu</h3>
 
                 <form id="searchForm" action="{{ route('searchData') }}" method="GET" class="mt-4">
                     <div class="row">
@@ -55,6 +60,9 @@
                         </div>
                     </div>
                 </form>
+                <br>
+                <br>
+                <br>
             </div>
         </section>
 
