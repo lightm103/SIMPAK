@@ -35,7 +35,7 @@
                             <input type="file" class="form-control" name="foto_kendaraan" id="fotoKendaraanDinas"
                                 aria-describedby="fotoKendaraanDinasHelp">
                             <div class="mb-3 text-center">
-                                <img src="{{ url('storage/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
                                     alt="" style="width: 500px; height: 500px; object-fit: cover;" srcset="">
                             </div>
                         </div>
@@ -44,7 +44,7 @@
                             <input type="file" class="form-control" name="foto_pengguna" id="fotoPengguna"
                                 aria-describedby="fotoPenggunaHelp">
                             <div class="mb-3 text-center">
-                                <img src="{{ url('storage/fotopengguna/' . $dataKendaraan->foto_pengguna) }}" alt=""
+                                <img src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}" alt=""
                                     style="width: 500px; height: 500px; object-fit: cover;" srcset="">
                             </div>
                         </div>

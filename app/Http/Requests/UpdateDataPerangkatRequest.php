@@ -11,7 +11,7 @@ class UpdateDataPerangkatRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class UpdateDataPerangkatRequest extends FormRequest
             'nama_perangkat' => 'required',
             'nama_pengguna' => 'required',
             'alamat_pengguna' => 'required',
-            'foto_perangkat' => 'required',
-            'foto_pengguna' => 'required',
+            'foto_perangkat' => 'nullable|image',
+            'foto_pengguna' => 'nullable|image',
             'notelpon_pengguna' => 'required',
             'merek_perangkat' => 'required',
             'tahun_perolehan' => 'required',

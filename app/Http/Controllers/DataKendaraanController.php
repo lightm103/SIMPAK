@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDataKendaraanRequest; // Import request yang sesuai
-use App\Models\DataKendaraan;
 use Illuminate\Http\Request;
+use App\Models\DataKendaraan;
+use App\Http\Requests\UpdateDataKendaraanRequest;
+use App\Http\Requests\StoreDataKendaraanRequest; // Import request yang sesuai
 
 class DataKendaraanController extends Controller
 {
@@ -104,28 +105,28 @@ class DataKendaraanController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreDataKendaraanRequest $request, string $id)
+    public function update(UpdateDataKendaraanRequest $request, string $id)
     {
-        // Lakukan validasi dan simpan perubahan
         $dataKendaraan = DataKendaraan::findOrFail($id);
         $data = $request->validated();
 
-        // Handle pembaruan foto jika diperlukan
+        // Handle pembaruan foto kendaraan jika diperlukan
         if ($request->hasFile('foto_kendaraan')) {
-            $fileKendaraan = $data['foto_kendaraan'];
+            $fileKendaraan = $request->file('foto_kendaraan');
             $fileKendaraanPath = $fileKendaraan->store('fotokendaraan');
             $data['foto_kendaraan'] = $fileKendaraanPath;
         }
 
+        // Handle pembaruan foto pengguna jika diperlukan
         if ($request->hasFile('foto_pengguna')) {
-            $filePengguna = $data['foto_pengguna'];
+            $filePengguna = $request->file('foto_pengguna');
             $filePenggunaPath = $filePengguna->store('fotopengguna');
             $data['foto_pengguna'] = $filePenggunaPath;
         }
 
         $dataKendaraan->update($data);
 
-        return redirect()->route('datakendaraan.index')->with('success', 'Data kendaraan berhasil diperbarui');
+        return redirect()->route('admin.datakendaraan.index')->with('success', 'Data kendaraan berhasil diperbarui');
     }
 
     /**
@@ -133,7 +134,7 @@ class DataKendaraanController extends Controller
      */
     public function destroy(string $id)
     {
-        $dataKendaraan = DataKendaraan::where('id' ,$id);
+        $dataKendaraan = DataKendaraan::where('id', $id);
         $dataKendaraan->delete();
         return redirect()->route('admin.datakendaraan.index')->with('success', 'Data kendaraan berhasil dihapus');
     }

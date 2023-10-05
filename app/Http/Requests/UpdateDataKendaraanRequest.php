@@ -11,7 +11,7 @@ class UpdateDataKendaraanRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -25,8 +25,8 @@ class UpdateDataKendaraanRequest extends FormRequest
             'plat_nomer' => 'required',
             'nama_pengguna' => 'required',
             'alamat_pengguna' => 'required',
-            'foto_kendaraan' => 'required',
-            'foto_pengguna' => 'required',
+            'foto_kendaraan' => 'nullable|image',
+            'foto_pengguna' => 'nullable|image',
             'notelpon_pengguna' => 'required',
             'merek_kendaraan' => 'required',
             'jenis_kendaraan' => 'required',

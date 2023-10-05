@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoreDataPerangkatRequest;
 use App\Models\DataPerangkat;
+use App\Http\Requests\StoreDataPerangkatRequest;
+use App\Http\Requests\UpdateDataPerangkatRequest;
 
 class DataPerangkatController extends Controller
 {
@@ -102,28 +103,28 @@ class DataPerangkatController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(StoreDataPerangkatRequest $request, string $id)
+    public function update(UpdateDataPerangkatRequest $request, string $id)
     {
-        // Lakukan validasi dan simpan perubahan
         $dataPerangkat = DataPerangkat::findOrFail($id);
         $data = $request->validated();
 
-        // Handle pembaruan foto jika diperlukan
+        // Handle pembaruan foto perangkat jika diperlukan
         if ($request->hasFile('foto_perangkat')) {
-            $filePerangkat = $data['foto_perangkat'];
-            $filePerangkatPath = $filePerangkat->store('fotoperangkat');
-            $data['foto_perangkat'] = $filePerangkatPath;
+            $filePerangkat = $request->file('foto_perangkat');
+            $filePerangkatPath = $filePerangkat->store('public/fotoperangkat');
+            $data['foto_perangkat'] = basename($filePerangkatPath);  // simpan hanya nama file
         }
 
+        // Handle pembaruan foto pengguna jika diperlukan
         if ($request->hasFile('foto_pengguna')) {
-            $filePengguna = $data['foto_pengguna'];
-            $filePenggunaPath = $filePengguna->store('fotopengguna');
-            $data['foto_pengguna'] = $filePenggunaPath;
+            $filePengguna = $request->file('foto_pengguna');
+            $filePenggunaPath = $filePengguna->store('public/fotopengguna');
+            $data['foto_pengguna'] = basename($filePenggunaPath);  // simpan hanya nama file
         }
 
         $dataPerangkat->update($data);
 
-        return redirect()->route('dataperangkat.index')->with('success', 'Data perangkat berhasil diperbarui');
+        return redirect()->route('admin.dataperangkat.index')->with('success', 'Data perangkat berhasil diperbarui');
     }
 
     /**
@@ -131,8 +132,8 @@ class DataPerangkatController extends Controller
      */
     public function destroy(string $id)
     {
-        $dataPerangkat = DataPerangkat::where('id' ,$id);
+        $dataPerangkat = DataPerangkat::findOrFail($id);
         $dataPerangkat->delete();
-        return redirect()->route('dataperangkat.index')->with('success', 'Data perangkat berhasil dihapus');
+        return redirect()->route('admin.dataperangkat.index')->with('success', 'Data perangkat berhasil dihapus');
     }
 }
