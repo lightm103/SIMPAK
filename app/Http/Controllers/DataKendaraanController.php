@@ -109,25 +109,33 @@ class DataKendaraanController extends Controller
     {
         $dataKendaraan = DataKendaraan::findOrFail($id);
         $data = $request->validated();
-
+    
         // Handle pembaruan foto kendaraan jika diperlukan
         if ($request->hasFile('foto_kendaraan')) {
             $fileKendaraan = $request->file('foto_kendaraan');
-            $fileKendaraanPath = $fileKendaraan->store('public/fotokendaraan');
-            $data['foto_kendaraan'] = $fileKendaraanPath;
+            $filekendaraan_name = $fileKendaraan->getClientOriginalName();
+            $filekendaraan_ext = $fileKendaraan->getClientOriginalExtension();
+            $filekendaraan_path = md5(time() . $filekendaraan_name) . "." . $filekendaraan_ext;
+            
+            $fileKendaraan->storeAs('public/fotokendaraan', $filekendaraan_path);
+            $data['foto_kendaraan'] = $filekendaraan_path;
         }
-
+    
         // Handle pembaruan foto pengguna jika diperlukan
         if ($request->hasFile('foto_pengguna')) {
             $filePengguna = $request->file('foto_pengguna');
-            $filePenggunaPath = $filePengguna->store('public/fotopengguna');
-            $data['foto_pengguna'] = basename($filePenggunaPath);
+            $filepengguna_name = $filePengguna->getClientOriginalName();
+            $filepengguna_ext = $filePengguna->getClientOriginalExtension();
+            $filepengguna_path = md5(time() . $filepengguna_name) . "." . $filepengguna_ext;
+    
+            $filePengguna->storeAs('public/fotopengguna', $filepengguna_path);
+            $data['foto_pengguna'] = $filepengguna_path;
         }
-
+    
         $dataKendaraan->update($data);
-
+    
         return redirect()->route('admin.datakendaraan.index')->with('success', 'Data kendaraan berhasil diperbarui');
-    }
+    }    
 
     /**
      * Remove the specified resource from storage.

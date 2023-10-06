@@ -104,28 +104,36 @@ class DataPerangkatController extends Controller
      * Update the specified resource in storage.
      */
     public function update(UpdateDataPerangkatRequest $request, string $id)
-    {
-        $dataPerangkat = DataPerangkat::findOrFail($id);
-        $data = $request->validated();
+{
+    $dataPerangkat = DataPerangkat::findOrFail($id);
+    $data = $request->validated();
 
-        // Handle pembaruan foto perangkat jika diperlukan
-        if ($request->hasFile('foto_perangkat')) {
-            $filePerangkat = $request->file('foto_perangkat');
-            $filePerangkatPath = $filePerangkat->store('public/fotoperangkat');
-            $data['foto_perangkat'] = basename($filePerangkatPath);  // simpan hanya nama file
-        }
+    // Handle pembaruan foto perangkat jika diperlukan
+    if ($request->hasFile('foto_perangkat')) {
+        $filePerangkat = $request->file('foto_perangkat');
+        $fileperangkat_name = $filePerangkat->getClientOriginalName();
+        $fileperangkat_ext = $filePerangkat->getClientOriginalExtension();
+        $fileperangkat_path = md5(time() . $fileperangkat_name) . "." . $fileperangkat_ext;
 
-        // Handle pembaruan foto pengguna jika diperlukan
-        if ($request->hasFile('foto_pengguna')) {
-            $filePengguna = $request->file('foto_pengguna');
-            $filePenggunaPath = $filePengguna->store('public/fotopengguna');
-            $data['foto_pengguna'] = basename($filePenggunaPath);  // simpan hanya nama file
-        }
-
-        $dataPerangkat->update($data);
-
-        return redirect()->route('admin.dataperangkat.index')->with('success', 'Data perangkat berhasil diperbarui');
+        $filePerangkat->storeAs('public/fotoperangkat', $fileperangkat_path);
+        $data['foto_perangkat'] = $fileperangkat_path;
     }
+
+    // Handle pembaruan foto pengguna jika diperlukan
+    if ($request->hasFile('foto_pengguna')) {
+        $filePengguna = $request->file('foto_pengguna');
+        $filepengguna_name = $filePengguna->getClientOriginalName();
+        $filepengguna_ext = $filePengguna->getClientOriginalExtension();
+        $filepengguna_path = md5(time() . $filepengguna_name) . "." . $filepengguna_ext;
+
+        $filePengguna->storeAs('public/fotopengguna', $filepengguna_path);
+        $data['foto_pengguna'] = $filepengguna_path;
+    }
+
+    $dataPerangkat->update($data);
+
+    return redirect()->route('admin.dataperangkat.index')->with('success', 'Data perangkat berhasil diperbarui');
+}
 
     /**
      * Remove the specified resource from storage.

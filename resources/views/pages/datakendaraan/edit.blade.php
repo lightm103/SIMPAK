@@ -30,24 +30,26 @@
                             <textarea class="form-control" name="alamat_pengguna" id="alamatPengguna" rows="3"
                                 placeholder="Masukkan Alamat Pengguna">{{ $dataKendaraan->plat_nomer }}</textarea>
                         </div>
+                        <!-- Display foto kendaraan -->
                         <div class="mb-3">
                             <label for="fotoKendaraanDinas" class="form-label">Ganti Foto Kendaraan Dinas</label>
-                            <input type="file" class="form-control" name="foto_kendaraan" id="fotoKendaraanDinas"
-                                aria-describedby="fotoKendaraanDinasHelp">
+                            <input type="file" class="form-control" name="foto_kendaraan" id="fotoKendaraanDinas">
                             <div class="mb-3 text-center">
-                                <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
-                                    alt="" style="width: 500px; height: 500px; object-fit: cover;" srcset="">
+                                <img src="{{ asset('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
+                                    alt="Foto Kendaraan Dinas" style="width: 500px; height: 500px; object-fit: cover;">
                             </div>
                         </div>
+
+                        <!-- Display foto pengguna -->
                         <div class="mb-3">
                             <label for="fotoPengguna" class="form-label">Ganti Foto Pengguna</label>
-                            <input type="file" class="form-control" name="foto_pengguna" id="fotoPengguna"
-                                aria-describedby="fotoPenggunaHelp">
+                            <input type="file" class="form-control" name="foto_pengguna" id="fotoPengguna">
                             <div class="mb-3 text-center">
-                                <img src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}" alt=""
-                                    style="width: 500px; height: 500px; object-fit: cover;" srcset="">
+                                <img src="{{ asset('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
+                                    alt="Foto Pengguna" style="width: 500px; height: 500px; object-fit: cover;">
                             </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="nomorTelepon" class="form-label">Nomor Telepon Pengguna</label>
                             <input type="text" value="{{ $dataKendaraan->notelpon_pengguna }}" class="form-control"
@@ -66,8 +68,7 @@
                         <div class="mb-3">
                             <label for="tahunPerolehan" class="form-label">Tahun Perolehan</label>
                             <input type="text" value="{{ $dataKendaraan->tahun_perolehan }}" class="form-control"
-                                name="tahun_perolehan" id="tahunPerolehan"
-                                placeholder="Masukkan Tahun Perolehan Kendaraan">
+                                name="tahun_perolehan" id="tahunPerolehan" placeholder="Masukkan Tahun Perolehan Kendaraan">
                         </div>
                         <div class="mb-3">
                             <label for="jabatanPengguna" class="form-label">Jabatan Pengguna</label>
@@ -75,10 +76,10 @@
                                 name="jabatan_pengguna" id="jabatanPengguna" placeholder="Masukkan Jabatan Pengguna">
                         </div>
                     </div>
-                    
-                <div class="mb-3">
-                    <button type="submit" class="btn btn-primary">Update Data</button>
-                </div>
+
+                    <div class="mb-3">
+                        <button type="submit" class="btn btn-primary">Update Data</button>
+                    </div>
                 </form>
             </div>
         </div>
