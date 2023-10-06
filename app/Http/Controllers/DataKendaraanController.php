@@ -113,15 +113,15 @@ class DataKendaraanController extends Controller
         // Handle pembaruan foto kendaraan jika diperlukan
         if ($request->hasFile('foto_kendaraan')) {
             $fileKendaraan = $request->file('foto_kendaraan');
-            $fileKendaraanPath = $fileKendaraan->store('fotokendaraan');
+            $fileKendaraanPath = $fileKendaraan->store('public/fotokendaraan');
             $data['foto_kendaraan'] = $fileKendaraanPath;
         }
 
         // Handle pembaruan foto pengguna jika diperlukan
         if ($request->hasFile('foto_pengguna')) {
             $filePengguna = $request->file('foto_pengguna');
-            $filePenggunaPath = $filePengguna->store('fotopengguna');
-            $data['foto_pengguna'] = $filePenggunaPath;
+            $filePenggunaPath = $filePengguna->store('public/fotopengguna');
+            $data['foto_pengguna'] = basename($filePenggunaPath);
         }
 
         $dataKendaraan->update($data);
