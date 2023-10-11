@@ -28,7 +28,7 @@
                             <p>Nama Pengguna: {{ $dataPerangkat->nama_pengguna }}</p>
                             <p>Jabatan Pengguna: {{ $dataPerangkat->jabatan_pengguna }}</p>
                             <p>Alamat Pengguna: {{ $dataPerangkat->alamat_pengguna }}</p>
-                            <p>Merek Perangkat: {{ $dataPerangkat->merek_perangkat }}</p>
+                            <p>Jenis Perangkat: {{ $dataPerangkat->merek_perangkat }}</p>
                             <p>Tahun Perolehan: {{ $dataPerangkat->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img src="{{ asset('storage/public/fotopengguna/' . $dataPerangkat->foto_pengguna)}}"
                                 alt="" style="height:350px "

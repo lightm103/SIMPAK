@@ -14,7 +14,7 @@
                 <!-- Kolom 1 -->
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label for="nomorPlat" class="form-label">Nama Perangkat Elektronik</label>
+                        <label for="nomorPlat" class="form-label">Nama Merk Elektronik</label>
                         <input type="text" value="{{ $dataPerangkat->nama_perangkat }}"
                             class="form-control" name="plat_nomer" id="nomorPlat"
                             placeholder="Masukkan Nomor Plat Kendaraan Dinas" disabled>
@@ -56,7 +56,7 @@
                             placeholder="Masukkan Nomor Telepon Pengguna" disabled>
                     </div>
                     <div class="mb-3">
-                        <label for="merekPerangkat" class="form-label">Merek Perangkat</label>
+                        <label for="merekPerangkat" class="form-label">Jenis Perangkat</label>
                         <input type="text" value="{{ $dataPerangkat->merek_perangkat }}"
                             class="form-control" name="merek_perangkat" id="merekKendaraan"
                             placeholder="Masukkan Merek Kendaraan" disabled>
