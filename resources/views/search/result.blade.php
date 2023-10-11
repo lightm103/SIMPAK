@@ -31,11 +31,11 @@
                             <p>Merek Perangkat: {{ $dataPerangkat->merek_perangkat }}</p>
                             <p>Tahun Perolehan: {{ $dataPerangkat->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img src="{{ asset('storage/public/fotopengguna/' . $dataPerangkat->foto_pengguna)}}"
-                                alt="" style=""
+                                alt="" style="height:350px "
                                 srcset=""></p>
                             <p>Foto Perangkat : <img
                                     src="{{ asset('storage/public/fotoperangkat/' . $dataPerangkat->foto_perangkat)}}"
-                                    alt="" style=""
+                                    alt="" style="height:400px"
                                     srcset=""></p>
                             <hr>
                         @endforeach
@@ -58,9 +58,9 @@
                             <p>Merek Kendaraan: {{ $dataKendaraan->merek_kendaraan }}</p>
                             <p>Tahun Perolehan: {{ $dataKendaraan->tahun_perolehan }}</p>
                             <p>Foto Pengguna: <img src="{{ url('storage/public/fotopengguna/' . $dataKendaraan->foto_pengguna) }}"
-                                alt="" ></p>
+                                alt="" style="height: 350px"></p>
                             <p>Foto Kendaraan: <img src="{{ url('storage/public/fotokendaraan/' . $dataKendaraan->foto_kendaraan) }}"
-                                alt="" ></p>
+                                alt="" style="height: 400px"></p>
                             <hr>
                         @endforeach
                     </div>
